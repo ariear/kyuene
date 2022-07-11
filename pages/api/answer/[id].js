@@ -7,7 +7,7 @@ const answerHandle = async (req, res) => {
     await connectMongo()
     const idquestion = req.query.id
     
-    const questionUpdated = await Question.updateOne({_id: idquestion}, {
+    const questionUpdated = await Question.updateOne({_id: idquestion},{
         answer: req.body.answer
     })
 
