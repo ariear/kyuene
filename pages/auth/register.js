@@ -1,7 +1,9 @@
 import Link from "next/link"
+import Layout from "../../components/Layout"
 
 const Register = () => {
     return (
+        <Layout title="Register">
         <div className="min-h-screen flex justify-center items-center">
             <div className="font-publicsans shadow-xl w-[500px] px-16 pt-14 pb-10 rounded-xl border relative">
                 <img src="/icon/Portal.png" className="absolute -top-16 left-0 right-0 mx-auto" alt="" />
@@ -22,6 +24,7 @@ const Register = () => {
                 <Link href="/auth/login" ><a className="underline text-blue-400">Sudah punya akun?</a></Link>
             </div>
         </div>
+        </Layout>
     )
 }
 

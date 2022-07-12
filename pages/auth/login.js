@@ -1,7 +1,9 @@
 import Link from "next/link"
+import Layout from "../../components/Layout"
 
 const Login = () => {
     return (
+        <Layout title="Login">
         <div className="min-h-screen flex justify-center items-center">
             <div className="font-publicsans shadow-xl w-[500px] px-16 pt-14 pb-10 rounded-xl border relative">
                 <img src="/icon/Portal.png" className="absolute -top-16 left-0 right-0 mx-auto" alt="" />
@@ -18,6 +20,7 @@ const Login = () => {
                 <Link href="/auth/register" ><a className="underline text-blue-400">Belum punya akun ?</a></Link>
             </div>
         </div>
+        </Layout>
     )
 }
 
