@@ -1,13 +1,32 @@
+import Cookies from "js-cookie";
 import Link from "next/link"
+import Router from "next/router";
+import { useEffect, useState } from "react"
 
 const Nav = () => {
+    const [token,setToken ] = useState('')
+
+    useEffect(() => {
+        setToken(Cookies.get('token'))    
+    }, []);
+
+    const logoutHandle = () => {
+        Cookies.remove('token')
+        setToken('')
+    }
+
     return (
         <nav className="bg-[#4FBDBA] font-publicsans">
             <nav className="container flex items-center text-white justify-around mx-auto py-4">
             <p className="font-semibold text-xl">Kyuene</p>
             <ul className="flex items-center">
                 <li className="mr-6"><Link href="/"><a>Home</a></Link></li>
-                <li className="py-2 px-5 rounded-lg bg-[#1597E5]"><Link href="/auth/login"><a>Login</a></Link></li>
+                {
+                    token ?
+                    <li className="py-2 px-5 rounded-lg bg-red-400 cursor-pointer" onClick={() => logoutHandle()} >Logout</li>
+                        :
+                    <li className="py-2 px-5 rounded-lg bg-[#1597E5]"><Link href="/auth/login"><a>Login</a></Link></li>
+                }
             </ul>
             </nav>
         </nav>
