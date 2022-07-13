@@ -1,6 +1,5 @@
 import Cookies from "js-cookie";
 import Link from "next/link"
-import Router from "next/router";
 import { useEffect, useState } from "react"
 
 const Nav = () => {

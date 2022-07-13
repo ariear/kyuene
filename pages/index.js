@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react"
 import Layout from "../components/Layout"
 
@@ -28,12 +29,18 @@ const Home = () => {
           loading ? <p>Loading ...</p>
                   :
           listUser.map((user , index) => (
-        <div key={index} className="flex items-center border w-[300px] rounded-lg py-2 px-3 shadow-lg mx-2 mb-2">
-          <img src="/icon/Portal.png" className="w-[55px] mr-4" alt="" />
-          <div>
-            <p>{user.username}</p>
-          </div>
-        </div>
+            <div key={index} className="border w-[300px] rounded-lg py-2 px-3 shadow-lg mx-2 mb-2">
+          <Link href={`/user/${user._id}`} >
+            <a>
+              <div className="flex items-center ">
+                <img src="/icon/Portal.png" className="w-[55px] mr-4" alt="" />
+                <div>
+                  <p>{user.username}</p>
+                </div>
+              </div>
+            </a>
+          </Link>
+            </div>
           ))
         }
       </div>
