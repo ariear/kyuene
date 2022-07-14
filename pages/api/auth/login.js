@@ -18,7 +18,7 @@ const loginHandler = async (req,res) => {
             _id: getUser._id,
             username: getUser.username,
             email: getUser.email
-        },'waifumulonet', {
+        },process.env.DB_SECRET_KEY, {
             expiresIn: '7d'
         })
 

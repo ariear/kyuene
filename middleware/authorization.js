@@ -10,7 +10,7 @@ const authorization = (req , res) => {
     if (tokenType !== 'Bearer') return res.status(401).end()
 
     try {
-        return jwt.verify(tokenValue, 'waifumulonet')
+        return jwt.verify(tokenValue, process.env.DB_SECRET_KEY)
     } catch (error) {
         return res.status(401).end()
     }

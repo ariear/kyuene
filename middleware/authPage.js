@@ -17,13 +17,13 @@ const authpage = (ctx) => {
         }).end()
     }
 
-    return jwt.verify(token,'waifumulonet')
+    return jwt.verify(token,process.env.DB_SECRET_KEY)
 }
 
 const isAuthPage = (ctx) => {
     const {token} = ctx.req.cookies
     if (token) {
-        return jwt.verify(token,'waifumulonet')
+        return jwt.verify(token,process.env.DB_SECRET_KEY)
     }
 
     return {}
