@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Router from 'next/router'
 
 const Nav = () => {
     const [token,setToken ] = useState('')
@@ -12,6 +13,8 @@ const Nav = () => {
     const logoutHandle = () => {
         Cookies.remove('token')
         setToken('')
+
+        Router.replace('/')
     }
 
     return (
