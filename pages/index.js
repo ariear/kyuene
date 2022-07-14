@@ -2,8 +2,19 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react"
 import Layout from "../components/Layout"
+import { isAuthPage } from "../middleware/authPage";
 
-const Home = () => {
+export function getServerSideProps(ctx){
+  const isauth = isAuthPage(ctx)
+
+  return {
+    props: {
+      isauth
+    }
+  }
+}
+
+const Home = ({isauth}) => {
   const [loading, setLoading] = useState(false)
   const [listUser , setListUser ] = useState([])
 
@@ -28,7 +39,14 @@ const Home = () => {
         {
           loading ? <p>Loading ...</p>
                   :
-          listUser.map((user , index) => (
+          listUser.filter((user) => {
+            if (user._id !== isauth._id) {
+              return user
+            }
+            if (!isauth) {
+              return user
+            } 
+          } ).map((user , index) => (
             <div key={index} className="border w-[300px] rounded-lg py-2 px-3 shadow-lg mx-2 mb-2">
           <Link href={`/user/${user._id}`} >
             <a>

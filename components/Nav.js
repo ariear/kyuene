@@ -25,7 +25,10 @@ const Nav = () => {
                 <li className="mr-6"><Link href="/"><a>Home</a></Link></li>
                 {
                     token ?
-                    <li className="py-2 px-5 rounded-lg bg-red-400 cursor-pointer" onClick={() => logoutHandle()} >Logout</li>
+                    <li className="flex items-center">
+                        <Link href="/user" ><a><img src="/icon/Portal.png" className="w-[50px] mr-4" alt="" /></a></Link>
+                        <button className="py-2 px-5 rounded-lg bg-red-400 cursor-pointer" onClick={() => logoutHandle()} >Logout</button>
+                    </li>
                         :
                     <li className="py-2 px-5 rounded-lg bg-[#1597E5]"><Link href="/auth/login"><a>Login</a></Link></li>
                 }

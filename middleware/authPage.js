@@ -19,4 +19,14 @@ const authpage = (ctx) => {
 
     return jwt.verify(token,'waifumulonet')
 }
-export {authpage , unAuthPage}
+
+const isAuthPage = (ctx) => {
+    const {token} = ctx.req.cookies
+    if (token) {
+        return jwt.verify(token,'waifumulonet')
+    }
+
+    return {}
+}
+
+export {authpage , unAuthPage, isAuthPage}
