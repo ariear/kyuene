@@ -16,6 +16,7 @@ const UserPage = (props) => {
     const [questions , setQuestions] = useState([])
     const [username, setUsername] = useState('')
     const [isOpen , setIsOpen ] = useState(false)
+    const [inputSearch, setInputSearch] = useState('')
 
     useEffect(() => {
         getUser()
@@ -55,12 +56,20 @@ const UserPage = (props) => {
                     <button className="bg-[#4FBDBA] py-3 px-7 text-white font-medium rounded-xl sm:text-base text-sm" onClick={() => setIsOpen(true)} >Ask Question</button>
                 </div>
                     <FormAlert isOpen={isOpen} setIsOpen={setIsOpen} id={id} getQuestions={getQuestions} />
+                    <input type="search" placeholder="Search question" value={inputSearch} onChange={(e) => setInputSearch(e.target.value)} className="w-[70vw] sm:w-[290px] py-2 px-4 rounded-lg border shadow-md mb-10" />
                 <div className="flex flex-wrap font-publicsans justify-center">
                     {
                         isLoading ? <p>Loading ...</p>
                                 :
                         questions.length ?
-                        questions.map((question , index) => (
+                        questions.filter((question) => {
+                            if (inputSearch === '') {
+                                return question
+                              }else if (question.question.toLowerCase().includes(inputSearch.toLowerCase())) {
+                                return question
+                              }
+                              return false
+                        }).map((question , index) => (
                             <div key={index} className="border w-[280px] p-5 mx-2 mb-5 rounded-lg shadow bg-white">
                                 <p className="font-medium text-lg mb-3">{question.question}</p>
                                 {
