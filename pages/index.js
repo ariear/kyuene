@@ -35,7 +35,7 @@ const Home = ({isauth}) => {
 
   return (
     <Layout title="Kyuene">
-      <div className="container mx-auto flex justify-center py-10">
+      <div className="container mx-auto flex justify-center py-10 flex-wrap">
         {
           loading ? <p>Loading ...</p>
                   :
@@ -47,7 +47,7 @@ const Home = ({isauth}) => {
               return user
             } 
           } ).map((user , index) => (
-            <div key={index} className="border w-[300px] rounded-lg py-2 px-3 shadow-lg mx-2 mb-2">
+            <div key={index} className="border w-[300px] rounded-lg py-2 px-3 shadow-lg mx-3 mb-5 bg-white">
           <Link href={`/user/${user._id}`} >
             <a>
               <div className="flex items-center ">

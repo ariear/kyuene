@@ -46,13 +46,13 @@ const UserPage = (props) => {
 
     return (
         <Layout title={username || 'loading'} >
-            <div className="w-[900px] mx-auto">
-                <div className="flex items-center justify-between py-10 border-b mb-10">
+            <div className="lg:w-[900px] mx-auto lg:px-0 sm:px-10 px-5">
+                <div className="flex items-center justify-between py-7 sm:py-10 border-b mb-10">
                     <div className="flex items-end">
-                        <img src="/icon/Portal.png" width="70" alt="" />
+                        <img src="/icon/Portal.png" className="sm:w-[70px] w-[50px]" alt="" />
                         <p className="font-publicsans font-semibold mb-4 ml-3">@{username}</p>
                     </div>
-                    <button className="bg-[#4FBDBA] py-3 px-7 text-white font-medium rounded-xl" onClick={() => setIsOpen(true)} >Ask Question</button>
+                    <button className="bg-[#4FBDBA] py-3 px-7 text-white font-medium rounded-xl sm:text-base text-sm" onClick={() => setIsOpen(true)} >Ask Question</button>
                 </div>
                     <FormAlert isOpen={isOpen} setIsOpen={setIsOpen} id={id} getQuestions={getQuestions} />
                 <div className="flex flex-wrap font-publicsans justify-center">
@@ -61,7 +61,7 @@ const UserPage = (props) => {
                                 :
                         questions.length ?
                         questions.map((question , index) => (
-                            <div key={index} className="border w-[280px] p-5 mx-2 mb-5 rounded-lg shadow">
+                            <div key={index} className="border w-[280px] p-5 mx-2 mb-5 rounded-lg shadow bg-white">
                                 <p className="font-medium text-lg mb-3">{question.question}</p>
                                 {
                                     question.answer && <p><b>Answer :</b> {question.answer}</p>

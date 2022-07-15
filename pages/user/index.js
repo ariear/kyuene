@@ -34,10 +34,10 @@ const UserProfile = ({dataUser}) => {
 
     return (
         <Layout title={dataUser.username} >
-            <div className="w-[900px] mx-auto">
-                <div className="flex items-center justify-between py-10 border-b mb-10">
+            <div className="lg:w-[900px] mx-auto lg:px-0 sm:px-10 px-5">
+                <div className="flex items-center justify-between py-7 sm:py-10 border-b mb-10">
                     <div className="flex items-end">
-                        <img src="/icon/Portal.png" width="70" alt="" />
+                        <img src="/icon/Portal.png" className="sm:w-[70px] w-[50px]" alt="" />
                         <p className="font-publicsans font-semibold mb-4 ml-3">@{dataUser.username}</p>
                     </div>
                 </div>
