@@ -11,4 +11,4 @@ project ini masih onprogress 80% dan ui nya masih sederhana, tetapi sudah bisa d
 
 ![screencapture-kyuene-vercel-app-2022-07-15-18_28_41](https://user-images.githubusercontent.com/91861324/179214975-a6c4073c-b5ff-489f-868f-ee98c1c8b1a0.png)
 
-![screencapture-kyuene-vercel-app-user-62caba90e277230e0097a7ee-2022-07-15-18_31_12](https://user-images.githubusercontent.com/91861324/179215090-72cd0dac-372c-4479-8d98-9e9161a09fb2.png)
+![Screenshot 2023-06-17 084724](https://github.com/ariear/kyuene/assets/91861324/aa9e4b38-e379-4a35-92e4-1c3760f4fdc8)
